@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class State extends Model
 {
     use HasFactory;
+
+    protected $fallable = ['name', 'country_id'];
+
+    public function country(){
+        $this->belongsTo(Country::class, 'country_id');
+    }
+    public function neighborhoods() {
+        $this->hasMany(Neighborhood::class);
+    }
 }
