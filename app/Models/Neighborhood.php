@@ -11,7 +11,8 @@ class Neighborhood extends Model
 
     protected $fillable = ['name'];
 
-    public function zipcode(){
-        $this->hasMany(ZipCode::class);
+    public function zipcode()
+    {
+        return $this->hasMany(ZipCode::class);
     }
 }

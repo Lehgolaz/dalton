@@ -11,10 +11,12 @@ class State extends Model
 
     protected $fallable = ['name', 'country_id'];
 
-    public function country(){
-        $this->belongsTo(Country::class, 'country_id');
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id');
     }
-    public function neighborhoods() {
-        $this->hasMany(Neighborhood::class);
+    public function neighborhoods()
+    {
+        return $this->hasMany(Neighborhood::class);
     }
 }
