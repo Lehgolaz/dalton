@@ -14,10 +14,10 @@ class Budget extends Model
     public function addresses(){
         return $this->belongsTo(Address::class, 'address_id');
     }
-    public function budget_type(){
+    public function budgetType(){
         return $this->belongsTo(BudgetType::class, 'budget_type_id');
     }
-    public function budget_details(){
+    public function budgetDetails(){
         return $this->hasMany(AddreBUdgetDetailss::class);
     }
 }

@@ -15,7 +15,11 @@ class Address extends Model
         return $this-> belongsTo(ZipCode::class);
     }
     public function entity(){
-        return $this-> belongsTo(Entity::class);
+        return $this-> belongsTo(Entity::class, 'entity_id');
+    }
+    public function budgets()
+    {
+        return $this->hasMany(Budgets::class);
     }
 
     //$address->entity
