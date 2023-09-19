@@ -17,7 +17,11 @@ class EntityFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->word(), 
+            'cpf_cnpj'=> $this->faker->randomNumber() * 1000, 
+            'rg_ie'=> $this->faker->randomNumber() * 5000, 
+            'imail'=> $this->faker->email(), 
+            'phone' => $this->faker->phoneNumber()
         ];
     }
 }
