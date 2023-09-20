@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Product;
+use App\Models\Store;
 use App\Models\Stores;
-
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,15 +17,16 @@ class PriceListFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'price'=> $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0.0, $max = 100.00), 
-            'isAvailable' =>$this->faker->boolean(), 
-            'store_id' => function(){
+            //
+            'price' => $this->faker->randomFloat($nbMaxDecimals = 2, $min = 0.0, $max = 100.00),
+            'isAvailable' => $this->faker->boolean(),
+            'store_id' => function () {
                 return Stores::factory()->create()->id;
-            }, 
-            'produt_id'=> function () {
+            },
+            'product_id' => function () {
                 return Product::factory()->create()->id;
             },
         ];

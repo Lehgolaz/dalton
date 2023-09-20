@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,10 +15,14 @@ class StateFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
         return [
             //
+            'name' => $this->faker->word(), 
+            'country_id' => function () {
+                return Country::factory()->create()->id;
+            },
         ];
     }
 }
