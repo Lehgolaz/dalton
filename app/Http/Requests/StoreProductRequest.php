@@ -17,12 +17,16 @@ class StoreProductRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array
      */
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'guarantee' => 'nullable|string',
+            'warranty_time' => 'nullable|integer|min:0',
+            'product_type_id' => 'required|exists:product_types,id',
         ];
     }
 }

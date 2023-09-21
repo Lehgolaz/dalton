@@ -17,12 +17,15 @@ class UpdatePriceListRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array
      */
     public function rules(): array
     {
         return [
-            //
+            'price' => 'sometimes|required|numeric',
+            'isAvailable' => 'sometimes|required|boolean',
+            'store_id' => 'sometimes|required|exists:stores,id',
+            'product_id' => 'sometimes|required|exists:products,id',
         ];
     }
 }

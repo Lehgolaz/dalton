@@ -17,12 +17,16 @@ class UpdateEntityRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array
      */
     public function rules(): array
     {
         return [
-            //
+            'name' => 'sometimes|required|string|max:255',
+            'cpf_cnpj' => 'sometimes|required|string|max:20',
+            'rg_ie' => 'nullable|string|max:20',
+            'email' => 'nullable|email|max:255',
+            'phone' => 'nullable|string|max:20',
         ];
     }
 }
