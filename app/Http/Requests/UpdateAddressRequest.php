@@ -11,18 +11,21 @@ class UpdateAddressRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array
      */
     public function rules(): array
     {
         return [
-            //
+            'number' => 'sometimes|required',
+            'complement' => 'nullable',
+            'zipcode_id' => 'sometimes|required|exists:zip_codes,id',
+            'entity_id' => 'sometimes|required|exists:entities,id',
         ];
     }
 }
