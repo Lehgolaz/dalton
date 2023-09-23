@@ -10,6 +10,8 @@ class PriceListController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -18,6 +20,8 @@ class PriceListController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -26,6 +30,9 @@ class PriceListController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StorePriceListRequest  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(StorePriceListRequest $request)
     {
@@ -34,6 +41,9 @@ class PriceListController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     * @param  \App\Models\PriceList  $priceList
+     * @return \Illuminate\Http\Response
      */
     public function show(PriceList $priceList)
     {
@@ -42,6 +52,9 @@ class PriceListController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\PriceList  $priceList
+     * @return \Illuminate\Http\Response
      */
     public function edit(PriceList $priceList)
     {
@@ -50,6 +63,10 @@ class PriceListController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdatePriceListRequest  $request
+     * @param  \App\Models\PriceList  $priceList
+     * @return \Illuminate\Http\Response
      */
     public function update(UpdatePriceListRequest $request, PriceList $priceList)
     {
@@ -58,6 +75,9 @@ class PriceListController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\PriceList  $priceList
+     * @return \Illuminate\Http\Response
      */
     public function destroy(PriceList $priceList)
     {

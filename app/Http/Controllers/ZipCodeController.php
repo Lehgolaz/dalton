@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\ZipCode;
-use App\Http\Requests\StoreZipCodeRequest;
-use App\Http\Requests\UpdateZipCodeRequest;
+use App\Http\Requests\ZipCodeStoreRequest;
+use App\Http\Requests\ZipCodeUpdateRequest;
 
 class ZipCodeController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -18,6 +20,8 @@ class ZipCodeController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -26,14 +30,20 @@ class ZipCodeController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\ZipCodeStoreRequest  $request
+     * @return \Illuminate\Http\Response
      */
-    public function store(StoreZipCodeRequest $request)
+    public function store(ZipCodeStoreRequest $request)
     {
         //
     }
 
     /**
      * Display the specified resource.
+     *
+     * @param  \App\Models\ZipCode  $zipCode
+     * @return \Illuminate\Http\Response
      */
     public function show(ZipCode $zipCode)
     {
@@ -42,6 +52,9 @@ class ZipCodeController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\ZipCode  $zipCode
+     * @return \Illuminate\Http\Response
      */
     public function edit(ZipCode $zipCode)
     {
@@ -50,14 +63,21 @@ class ZipCodeController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateZipCodeRequest  $request
+     * @param  \App\Models\ZipCode  $zipCode
+     * @return \Illuminate\Http\Response
      */
-    public function update(UpdateZipCodeRequest $request, ZipCode $zipCode)
+    public function update(ZipCodeUpdateRequest $request, ZipCode $zipCode)
     {
         //
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\ZipCode  $zipCode
+     * @return \Illuminate\Http\Response
      */
     public function destroy(ZipCode $zipCode)
     {

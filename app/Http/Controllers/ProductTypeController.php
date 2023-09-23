@@ -10,6 +10,8 @@ class ProductTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -18,6 +20,8 @@ class ProductTypeController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -26,6 +30,9 @@ class ProductTypeController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreProductTypeRequest  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(StoreProductTypeRequest $request)
     {
@@ -34,6 +41,9 @@ class ProductTypeController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     * @param  \App\Models\ProductType  $productType
+     * @return \Illuminate\Http\Response
      */
     public function show(ProductType $productType)
     {
@@ -42,6 +52,9 @@ class ProductTypeController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\ProductType  $productType
+     * @return \Illuminate\Http\Response
      */
     public function edit(ProductType $productType)
     {
@@ -50,6 +63,10 @@ class ProductTypeController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateProductTypeRequest  $request
+     * @param  \App\Models\ProductType  $productType
+     * @return \Illuminate\Http\Response
      */
     public function update(UpdateProductTypeRequest $request, ProductType $productType)
     {
@@ -58,6 +75,9 @@ class ProductTypeController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\ProductType  $productType
+     * @return \Illuminate\Http\Response
      */
     public function destroy(ProductType $productType)
     {

@@ -10,6 +10,8 @@ class BudgetTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -18,6 +20,8 @@ class BudgetTypeController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
      */
     public function create()
     {
@@ -26,6 +30,9 @@ class BudgetTypeController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StoreBudgetTypeRequest  $request
+     * @return \Illuminate\Http\Response
      */
     public function store(StoreBudgetTypeRequest $request)
     {
@@ -34,6 +41,9 @@ class BudgetTypeController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     * @param  \App\Models\BudgetType  $budgetType
+     * @return \Illuminate\Http\Response
      */
     public function show(BudgetType $budgetType)
     {
@@ -42,6 +52,9 @@ class BudgetTypeController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\BudgetType  $budgetType
+     * @return \Illuminate\Http\Response
      */
     public function edit(BudgetType $budgetType)
     {
@@ -50,6 +63,10 @@ class BudgetTypeController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param  \App\Http\Requests\UpdateBudgetTypeRequest  $request
+     * @param  \App\Models\BudgetType  $budgetType
+     * @return \Illuminate\Http\Response
      */
     public function update(UpdateBudgetTypeRequest $request, BudgetType $budgetType)
     {
@@ -58,6 +75,9 @@ class BudgetTypeController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\BudgetType  $budgetType
+     * @return \Illuminate\Http\Response
      */
     public function destroy(BudgetType $budgetType)
     {
