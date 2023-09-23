@@ -8,21 +8,28 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::table('budget_detail', function (Blueprint $table) {
+        Schema::table('budget_details', function (Blueprint $table) {
             //
+            $table->foreignId('price_list_id')->constrained('price_lists');
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::table('budget_detail', function (Blueprint $table) {
             //
+            $table->dropForeign(['price_list_id']);
+            $table->dropColumn('price_list_id');
         });
     }
 };

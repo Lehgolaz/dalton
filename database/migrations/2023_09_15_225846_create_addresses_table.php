@@ -8,19 +8,27 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
+            $table->string('number');
+            $table->string('complement')->nullable();
+            $table->foreignId('zipcode_id')->constrained('zip_codes');
+            $table->foreignId('entity_id')->constrained('entities');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('addresses');
     }
