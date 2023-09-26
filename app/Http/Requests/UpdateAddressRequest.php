@@ -8,8 +8,10 @@ class UpdateAddressRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -17,15 +19,15 @@ class UpdateAddressRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'number' => 'sometimes|required',
+            'number' => 'required',
             'complement' => 'nullable',
-            'zipcode_id' => 'sometimes|required|exists:zip_codes,id',
-            'entity_id' => 'sometimes|required|exists:entities,id',
+            'zipcode_id' => 'required|exists:zip_codes,id',
+            'entity_id' => 'required|exists:entities,id',
         ];
     }
 }

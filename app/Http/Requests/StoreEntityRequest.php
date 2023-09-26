@@ -8,8 +8,10 @@ class StoreEntityRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -17,16 +19,16 @@ class StoreEntityRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'cpf_cnpj' => 'required|string|max:20',
-            'rg_ie' => 'nullable|string|max:20',
-            'email' => 'nullable|email|max:255',
-            'phone' => 'nullable|string|max:20',
+            'name' => 'required|unique:entities,name',
+            'cpf_cnpj' => 'nullable|string', // Adicione suas regras de validação específicas aqui
+            'rg_ie' => 'nullable|string', // Adicione suas regras de validação específicas aqui
+            'email' => 'nullable|email|unique:entities,email', // Validação de e-mail único
+            'phone' => 'nullable|string', // Adicione suas regras de validação específicas aqui
         ];
     }
 }

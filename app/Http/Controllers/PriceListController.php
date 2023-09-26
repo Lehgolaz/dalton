@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\PriceList;
-use App\Http\Requests\StorePriceListRequest;
-use App\Http\Requests\UpdatePriceListRequest;
+use App\Http\Requests\PriceListStoreRequest;
+use App\Http\Requests\PriceListUpdateRequest;
 
 class PriceListController extends Controller
 {
@@ -15,72 +15,86 @@ class PriceListController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $priceLists = PriceList::paginate(10);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json(['data' => $priceLists]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePriceListRequest  $request
+     * @param  \App\Http\Requests\PriceListStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePriceListRequest $request)
+    public function store(PriceListStoreRequest $request)
     {
-        //
+        $data = $request->validated();
+
+        $priceList = PriceList::create($data);
+
+        return response()->json($priceList, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PriceList  $priceList
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(PriceList $priceList)
+    public function show($id)
     {
-        //
-    }
+        $priceList = PriceList::find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\PriceList  $priceList
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(PriceList $priceList)
-    {
-        //
+        if (!$priceList) {
+            return response()->json(['error' => 'Lista de Preços não encontrada.'], 404);
+        }
+
+        return response()->json(['data' => $priceList]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePriceListRequest  $request
-     * @param  \App\Models\PriceList  $priceList
+     * @param  \App\Http\Requests\PriceListUpdateRequest  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePriceListRequest $request, PriceList $priceList)
+    public function update(PriceListUpdateRequest $request, $id)
     {
-        //
+        $priceList = PriceList::find($id);
+
+        if (!$priceList) {
+            return response()->json(['error' => 'Lista de Preços não encontrada.'], 404);
+        }
+
+        $data = $request->validated();
+
+        $priceList->update($data);
+
+        return response()->json(['data' => $priceList]);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PriceList  $priceList
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PriceList $priceList)
+    public function destroy($id)
     {
-        //
+        $priceList = PriceList::find($id);
+
+        if (!$priceList) {
+            return response()->json(['error' => 'Lista de Preços não encontrada.'], 404);
+        }
+
+        // Verificar se há detalhes de orçamento associados antes de excluir
+        if ($priceList->budgetDetails->count() > 0) {
+            return response()->json(['error' => 'Esta Lista de Preços possui detalhes de orçamento associados e não pode ser excluída.'], 400);
+        }
+
+        $priceList->delete();
+
+        return response()->json(['message' => 'Lista de Preços deletada com sucesso.'], 200);
     }
 }

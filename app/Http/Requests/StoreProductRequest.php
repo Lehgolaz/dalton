@@ -4,28 +4,20 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProductRequest extends FormRequest
+class ProductStoreRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'guarantee' => 'nullable|string',
-            'warranty_time' => 'nullable|integer|min:0',
+            'name' => 'required',
+            'description' => 'nullable|string', // Adicione suas regras de validação específicas aqui
+            'warranty' => 'nullable|string', // Adicione suas regras de validação específicas aqui
+            'warranty_time' => 'nullable|numeric|min:0', // Adicione suas regras de validação específicas aqui
             'product_type_id' => 'required|exists:product_types,id',
         ];
     }

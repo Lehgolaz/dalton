@@ -1,21 +1,6 @@
 <?php
 
-use App\Http\Controllers\AddressController;
-use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
-use App\Http\Controllers\EntityController;
-use App\Http\Controllers\PriceListController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\StateController;
-use App\Http\Controllers\ZipCodeController;
-use App\Models\Budget;
-use App\Models\BudgetType;
-use App\Models\Country;
-use App\Models\Entity;
-use App\Models\Neighborhood;
-use App\Models\Product;
-use App\Models\ZipCode;
-use App\Policies\NeighborhoodPolicy;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::apiResource('/countries', CountryControllerroller::class);
+Route::apiResource('/countries', CountryController::class);
 Route::apiResource('/states', StateControllerlertroller::class);
 Route::apiResource('/cities', CityControllerller::class);
 Route::apiResource('/neighborhoods', NeighborhoodrhoodController::class);

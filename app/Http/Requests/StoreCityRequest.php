@@ -8,8 +8,10 @@ class StoreCityRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -17,12 +19,12 @@ class StoreCityRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'name' => 'required|string|max:255',
+            'name' => 'required|unique:cities,name',
             'state_id' => 'required|exists:states,id',
         ];
     }

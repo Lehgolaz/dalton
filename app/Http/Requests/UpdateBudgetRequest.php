@@ -3,31 +3,30 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class UpdateBudgetDetailRequest extends FormRequest
+class BudgetUpdateRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules(): array
+    public function rules()
     {
+        $budgetId = $this->route('budget')->id;
+
         return [
-            'amount' => 'sometimes|required|numeric',
-            'price' => 'sometimes|required|numeric',
-            'discount' => 'sometimes|nullable|numeric',
-            'subtotal' => 'sometimes|required|numeric',
-            'budget_id' => 'sometimes|required|exists:budgets,id',
-            'price_list_id' => 'sometimes|required|exists:price_lists,id',
+            'number' => [
+                'required',
+                Rule::unique('budgets', 'number')->ignore($budgetId),
+            ],
+            'budget_date' => 'required|date',
+            'expiration_date' => 'required|date',
+            'delivery_date' => 'required|date',
+            'shipping_value' => 'required|numeric',
+            'address_id' => 'required|exists:addresses,id',
+            'budget_type_id' => 'required|exists:budget_types,id',
         ];
     }
 }

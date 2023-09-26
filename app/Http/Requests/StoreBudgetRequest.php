@@ -4,12 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBudgetDetailRequest extends FormRequest
+class StoreBudgetRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
+     *
+     * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -17,17 +19,18 @@ class StoreBudgetDetailRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'amount' => 'required|numeric',
-            'price' => 'required|numeric',
-            'discount' => 'nullable|numeric',
-            'subtotal' => 'required|numeric',
-            'budget_id' => 'required|exists:budgets,id',
-            'price_list_id' => 'required|exists:price_lists,id',
+            'number' => 'required|unique:budgets,number',
+            'budget_date' => 'required|date',
+            'expiration_date' => 'required|date',
+            'delivery_date' => 'required|date',
+            'shipping_value' => 'required|numeric',
+            'address_id' => 'required|exists:addresses,id',
+            'budget_type_id' => 'required|exists:budget_types,id',
         ];
     }
 }
