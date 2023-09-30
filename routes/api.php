@@ -1,6 +1,19 @@
 <?php
 
+use App\Http\Controllers\AddressController;
+use App\Http\Controllers\BudgetDetailController;
+use App\Http\Controllers\BudgetTypeController;
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\CountryController;
+use App\Http\Controllers\EntityController;
+use App\Http\Controllers\NeighborhoodController;
+use App\Http\Controllers\PriceListController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProductTypeController;
+use App\Http\Controllers\StateController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ZipCodeController;
+use App\Models\BudgetDetail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,15 +30,15 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::apiResource('/countries', CountryController::class);
-Route::apiResource('/states', StateControllerlertroller::class);
-Route::apiResource('/cities', CityControllerller::class);
-Route::apiResource('/neighborhoods', NeighborhoodrhoodController::class);
-Route::apiResource('/zip-codes', ZipCodeControllertroller::class);
-Route::apiResource('/entities', EntityControllerller::class);
-Route::apiResource('/address', AddressControllerller::class);
-Route::apiResource('/budget-types', BudgetTypeypeController::class);
-Route::apiResource('/product-types', ProductctController::class);
-Route::apiResource('/products', ProductControllertroller::class);
+Route::apiResource('/states', StateController::class);
+Route::apiResource('/cities', CityController::class);
+Route::apiResource('/neighborhoods', NeighborhoodController::class);
+Route::apiResource('/zip-codes', ZipCodeController::class);
+Route::apiResource('/entities', EntityController::class);
+Route::apiResource('/address', AddressController::class);
+Route::apiResource('/budget-types', BudgetTypeController::class);
+Route::apiResource('/product-types', ProductTypeController::class);
+Route::apiResource('/products', ProductController::class);
 Route::apiResource('/stores', StoreController::class);
-Route::apiResource('/budget-details', BudgetetDetailController::class);
-Route::apiResource('/price-list', PriceListControllertroller::class);
+Route::apiResource('/budget-details', BudgetDetailController::class);
+Route::apiResource('/price-list', PriceListController::class);

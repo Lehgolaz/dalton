@@ -9,14 +9,15 @@ class State extends Model
 {
     use HasFactory;
 
-    protected $fallable = ['name', 'country_id'];
+    protected $fillable = ['name', 'country_id'];
 
     public function country()
     {
         return $this->belongsTo(Country::class, 'country_id');
     }
-    public function neighborhoods()
+
+    public function cities()
     {
-        return $this->hasMany(Neighborhood::class);
+        return $this->hasMany(City::class);
     }
 }

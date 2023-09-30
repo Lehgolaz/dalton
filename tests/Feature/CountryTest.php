@@ -97,7 +97,7 @@ class CountryTest extends TestCase
      *
      * @return void
      */
-    public function test_exibicao_de_pais()
+    public function test_exibicao_de_pais_sucesso()
     {
         // Crie um país usando o Factory
         $country = Country::factory()->create();
