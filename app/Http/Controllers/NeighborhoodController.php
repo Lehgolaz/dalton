@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\NeighborhoodStoreRequest;
-use App\Http\Requests\NeighborhoodUpdateRequest;
+
+use App\Http\Requests\StoreNeighborhoodRequest;
+use App\Http\Requests\UpdateNeighborhoodRequest;
 use App\Models\Neighborhood;
 
 class NeighborhoodController extends Controller
@@ -15,7 +16,8 @@ class NeighborhoodController extends Controller
      */
     public function index()
     {
-        $neighborhoods = Neighborhood::paginate(10);
+        $neighborhoods = Neighborhood::all();
+
 
         return response()->json(['data' => $neighborhoods]);
     }
@@ -26,7 +28,7 @@ class NeighborhoodController extends Controller
      * @param  \App\Http\Requests\NeighborhoodStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(NeighborhoodStoreRequest $request)
+    public function store(StoreNeighborhoodRequest $request)
     {
         $data = $request->validated();
 
@@ -59,7 +61,7 @@ class NeighborhoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(NeighborhoodUpdateRequest $request, $id)
+    public function update(UpdateNeighborhoodRequest $request, $id)
     {
         $neighborhood = Neighborhood::find($id);
 

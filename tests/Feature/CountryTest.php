@@ -226,5 +226,6 @@ class CountryTest extends TestCase
         $response->assertJson([
             'error' => 'País não encontrado.',
         ]);
+        
     }
 }

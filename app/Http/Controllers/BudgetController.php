@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Budget;
 use App\Http\Requests\StoreBudgetRequest;
 use App\Http\Requests\BudgetUpdateRequest;
+use App\Http\Requests\UpdateBudgetRequest;
 
 class BudgetController extends Controller
 {
@@ -59,7 +60,7 @@ class BudgetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(BudgetUpdateRequest $request, $id)
+    public function update(UpdateBudgetRequest $request, $id)
     {
         $budget = Budget::find($id);
 

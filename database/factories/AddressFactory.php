@@ -19,8 +19,8 @@ class AddressFactory extends Factory
     public function definition(): array
     {
         return [
-            'number' =>$this->faker->randomNumber(), 
-            'complement' => $this->faker->word(),
+            'number' =>$this->faker->unique()->randomNumber(), 
+            'complement' => $this->faker->unique()->word(),
             'zipcode_id'=> function () {
                 return ZipCode::factory()->create()->id;
             },
