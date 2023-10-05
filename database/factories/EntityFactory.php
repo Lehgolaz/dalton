@@ -18,9 +18,9 @@ class EntityFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->name(), 
-            'cpf_cnpj'=> $this->faker->unique()->numberfy('#############') , 
-            'rg_ie'=> $this->faker->unique()->numberfy('#############'), 
-            'imail'=> $this->faker->uniqeu()->email(), 
+            'cpf_cnpj'=> $this->faker->unique()->numerify('#############') , 
+            'rg_ie'=> $this->faker->unique()->numerify('#############'), 
+            'email'=> $this->faker->unique()->email(), 
             'phone' => $this->faker->phoneNumber()
         ];
     }

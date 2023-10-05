@@ -9,7 +9,7 @@ class Entity extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'cpf_cnpj', 'rg_ie', 'imail', 'phone'];
+    protected $fillable = ['name', 'cpf_cnpj', 'rg_ie', 'email', 'phone'];
 
     public function addresses()
     {

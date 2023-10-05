@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Neighborhood;
+use App\Models\ZipCode;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -65,11 +66,33 @@ class NeigborhoodTest extends TestCase
             ['name']
         );
     }
-    public function test_pesquisar_id_inexistente_falha(){
-        $response = $this->getJson('/api/neighborhooods/9999999');
+    public function test_pesquisar_id_inexistente_falhar(){
+        $response = $this->getJson('/api/neighborhoods/999999');
 
         $response->assertStatus(404)
-        ->assertjson(['error' => 'Bairro não encontrado.']);
+        ->assertjson(['error' =>'Bairro não encontrado.']);
     }
 
+    public function test_deletar_com_suceso(){
+        $bairro = Neighborhood::factory()->create();
+
+        $response = $this->deleteJson('/api/neighborhoods/'.$bairro->id);
+
+        $response->assertStatus(200)->assertJson(['message' => 'Bairro deletado com sucesso.']);
+    }
+
+    public function test_deletar_com_falhar(){
+        $response = $this->deleteJson('/api/neighborhoods/99999');
+
+        $response->assertStatus(404)->assertjson(['error' => 'Bairro não encontrado.']);
+    }
+
+    public function test_tentar_deletar_com_relacionamentos_e_falhar(){
+        $zip = ZipCode::factory()->create();
+
+        $response = $this->deleteJson('/api/neighborhoods/'. $zip->neighborhood_id);
+
+        $response->assertStatus(400)->assertjson(['error' => 'Este bairro possui códigos postais associados e não pode ser excluído.']);
+    }
 }
+//1

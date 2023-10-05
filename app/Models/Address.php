@@ -9,7 +9,7 @@ class Address extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['number', 'complment', 'zipcode_id', 'entity_id'];
+    protected $fillable = ['number', 'complement', 'zipcode_id', 'entity_id'];
 
     public function zipcode(){
         return $this-> belongsTo(ZipCode::class);

@@ -15,7 +15,7 @@ class AddressController extends Controller
      */
     public function index()
     {
-        $addresses = Address::paginate(10);
+        $addresses = Address::all();
 
         return response()->json(['data' => $addresses]);
     }
@@ -44,6 +44,8 @@ class AddressController extends Controller
     public function show($id)
     {
         $address = Address::find($id);
+
+      
 
         if (!$address) {
             return response()->json(['error' => 'Endereço não encontrado.'], 404);
@@ -98,3 +100,4 @@ class AddressController extends Controller
         return response()->json(['message' => 'Endereço deletado com sucesso.'], 200);
     }
 }
+//4

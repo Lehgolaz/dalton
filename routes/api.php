@@ -35,7 +35,7 @@ Route::apiResource('/cities', CityController::class);
 Route::apiResource('/neighborhoods', NeighborhoodController::class);
 Route::apiResource('/zip-codes', ZipCodeController::class);
 Route::apiResource('/entities', EntityController::class);
-Route::apiResource('/address', AddressController::class);
+Route::apiResource('/addresses', AddressController::class);
 Route::apiResource('/budget-types', BudgetTypeController::class);
 Route::apiResource('/product-types', ProductTypeController::class);
 Route::apiResource('/products', ProductController::class);

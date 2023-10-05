@@ -100,3 +100,4 @@ class NeighborhoodController extends Controller
         return response()->json(['message' => 'Bairro deletado com sucesso.'], 200);
     }
 }
+//2

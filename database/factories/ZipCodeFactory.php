@@ -20,7 +20,7 @@ class ZipCodeFactory extends Factory
     {
         return [
             //
-            'zipcode' => $this->faker->unique()->numberify('########'), 
+            'zipcode' => $this->faker->unique()->numerify('########'), 
             'place' => $this->faker->word(), 
             'city_id' => function () {
                 return City::factory()->create()->id;
