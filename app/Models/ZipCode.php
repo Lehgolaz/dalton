@@ -9,7 +9,7 @@ class ZipCode extends Model
 {
     use HasFactory;
 
-    protected $fallable = ['zip_code', 'place', 'city_id', 'neighbordhood_id'];
+    protected $fallable = ['zip_code', 'place', 'city_id', 'neighbordhood_id', 'address_id'];
     public function city()
     {
         return $this->belongsTo(City::class, 'city_id');
@@ -20,6 +20,6 @@ class ZipCode extends Model
     }
     public function address()
     {
-        return $this->hasMany(Address::class,);
+        return $this->belongsTo(Address::class, 'address_id');
     }
 }

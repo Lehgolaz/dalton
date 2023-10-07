@@ -19,7 +19,11 @@ class Address extends Model
     }
     public function budgets()
     {
-        return $this->hasMany(Budgets::class);
+        return $this->hasMany(Budget::class);
+    }
+
+    public function stores(){
+        return $this->hasMany(Stores::class);
     }
 
     //$address->entity

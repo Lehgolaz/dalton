@@ -18,6 +18,6 @@ class Budget extends Model
         return $this->belongsTo(BudgetType::class, 'budget_type_id');
     }
     public function budgetDetails(){
-        return $this->hasMany(AddreBUdgetDetailss::class);
+        return $this->hasMany(BudgetDetail::class);
     }
 }
