@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\ProductType;
 use App\Http\Requests\ProductTypeStoreRequest;
 use App\Http\Requests\ProductTypeUpdateRequest;
+use App\Http\Requests\StoreProductTypeRequest;
+use App\Http\Requests\UpdateProductTypeRequest;
 
 class ProductTypeController extends Controller
 {
@@ -26,7 +28,7 @@ class ProductTypeController extends Controller
      * @param  \App\Http\Requests\ProductTypeStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductTypeStoreRequest $request)
+    public function store(StoreProductTypeRequest $request)
     {
         $data = $request->validated();
 
@@ -59,7 +61,7 @@ class ProductTypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductTypeUpdateRequest $request, $id)
+    public function update(UpdateProductTypeRequest $request, $id)
     {
         $productType = ProductType::find($id);
 

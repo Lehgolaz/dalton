@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Http\Requests\StoreCityRequest;
 use App\Http\Requests\CityUpdateRequest;
+use App\Http\Requests\UpdateCityRequest;
 
 class CityController extends Controller
 {
@@ -59,7 +60,7 @@ class CityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CityUpdateRequest $request, $id)
+    public function update(UpdateCityRequest $request, $id)
     {
         $city = City::find($id);
 

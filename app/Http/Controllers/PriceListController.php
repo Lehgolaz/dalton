@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\PriceList;
 use App\Http\Requests\PriceListStoreRequest;
 use App\Http\Requests\PriceListUpdateRequest;
+use App\Http\Requests\StorePriceListRequest;
+use App\Http\Requests\UpdatePriceListRequest;
 
 class PriceListController extends Controller
 {
@@ -26,7 +28,7 @@ class PriceListController extends Controller
      * @param  \App\Http\Requests\PriceListStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PriceListStoreRequest $request)
+    public function store(StorePriceListRequest $request)
     {
         $data = $request->validated();
 
@@ -59,7 +61,7 @@ class PriceListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PriceListUpdateRequest $request, $id)
+    public function update(UpdatePriceListRequest $request, $id)
     {
         $priceList = PriceList::find($id);
 

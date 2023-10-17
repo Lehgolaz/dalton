@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Stores;
-use App\Http\Requests\StoreStoreRequest;
-use App\Http\Requests\ZipCodeUpdateRequest;
+use App\Http\Requests\UpdateStoresRequest;
+use App\Http\Requests\StoreStoresRequest;
+
 
 class StoreController extends Controller
 {
@@ -26,7 +27,7 @@ class StoreController extends Controller
      * @param  \App\Http\Requests\StoreStoreRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreStoreRequest $request)
+    public function store(StoreStoresRequest $request)
     {
         $data = $request->validated();
 
@@ -59,7 +60,7 @@ class StoreController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ZipCodeUpdateRequest $request, $id)
+    public function update(UpdateStoresRequest $request, $id)
     {
         $store = Stores::find($id);
 

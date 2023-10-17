@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\EntityStoreRequest;
-use App\Models\Entity;
 use App\Http\Requests\StoreEntityRequest;
+use App\Models\Entity;
+use App\Http\Requests\UpdateEntityRequest;
 
 class EntityController extends Controller
 {
@@ -59,7 +59,7 @@ class EntityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EntityStoreRequest $request, $id)
+    public function update(UpdateEntityRequest $request, $id)
     {
         $entity = Entity::find($id);
 
