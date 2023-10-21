@@ -9,7 +9,7 @@ class PriceList extends Model
 {
     use HasFactory;
 
-    protected $fallable=['price', 'isAvailable', 'store_id', 'produt_id'];
+    protected $fallable=['price', 'isAvailable', 'store_id', 'product_id'];
 
     public function store(){
         return $this->belongsTo(Store::class);

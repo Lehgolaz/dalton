@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fallable = ['name', 'description', 'guarantee', 'waeeanty_time', 'product_type_id'];
+    protected $fallable = ['name', 'description', 'guarantee', 'waeanty_time', 'product_type_id'];
 
     public function productType(){
         return $this->belongsTo(ProductType::class, 'product_Typr_id');

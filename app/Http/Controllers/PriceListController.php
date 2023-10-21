@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\PriceList;
-use App\Http\Requests\PriceListStoreRequest;
-use App\Http\Requests\PriceListUpdateRequest;
 use App\Http\Requests\StorePriceListRequest;
 use App\Http\Requests\UpdatePriceListRequest;
 

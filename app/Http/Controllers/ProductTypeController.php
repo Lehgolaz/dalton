@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProductType;
-use App\Http\Requests\ProductTypeStoreRequest;
-use App\Http\Requests\ProductTypeUpdateRequest;
 use App\Http\Requests\StoreProductTypeRequest;
 use App\Http\Requests\UpdateProductTypeRequest;
 
